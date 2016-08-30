@@ -19,7 +19,7 @@ voterlst = []
 authorlst = []
 permlinklst = []
 
-for i in range(4117027, 4341995):           # parsing the blocks between Aug 16 - Aug 23 (end of day)
+for i in range(4288592, 4517261):           # parsing the blocks between Aug 16 - Aug 23 (end of day)
     dys = rpc.get_block(i)['transactions']
     for tx in dys:
         for operation in tx['operations']:
