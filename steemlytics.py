@@ -5,21 +5,21 @@ rpc = SteemNodeRPC('ws://node.steem.ws')
 from collections import Counter
 import csv
 
-# August 22 - beginning of the day - block 4288592   
-# August 29 - end of the day - bock 4517261
+# August 30 - beginning of the day - block 4517262
+# September 5 - end of the day - block 4718263
 
 voters = ['blocktrades', 'jamesc', 'smooth', 'dantheman', 'tombstone', 'summon',
             'steemed', 'rainman', 'wang', 'complexring', 'riverhead', 'roadscape',
             'nextgencrypto', 'silversteem', 'donkeypong', 'proskynneo', 'blackjack',
             'firstclass', 'enki', 'clayop', 'wackou', 'steemit200','kushed', 'xeldal',
             'arhag','fuzzyvest','pharesim','steempty', 'bitcube','onceuponatime','witnes.svk'
-            ,'abit']
+            ,'abit','berniesanders']
 
 voterlst = []
 authorlst = []
 permlinklst = []
 
-for i in range(4288592, 4517261):           # parsing the blocks between Aug 22 - Aug 29 (end of day)
+for i in range(4517262, 4718263):         # parsing the blocks between Aug 29 - Sept 5 (end of day)
     dys = rpc.get_block(i)['transactions']
     for tx in dys:
         for operation in tx['operations']:
