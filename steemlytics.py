@@ -5,8 +5,8 @@ rpc = SteemNodeRPC('ws://node.steem.ws')
 from collections import Counter
 import csv
 
-# September 6 - beginning of the day - block 4718264
-# September 12 - end of the day - block 4919136
+# September 13 - beginning of the day - block 4919137
+# September 19 - end of the day - block 5119614
 
 voters = ['blocktrades', 'jamesc', 'smooth', 'dantheman', 'tombstone', 'summon',
             'steemed', 'rainman', 'wang', 'complexring', 'riverhead', 'roadscape',
@@ -21,9 +21,9 @@ voterlst = []
 authorlst = []
 permlinklst = []
 
-# parsing the blocks between Sept 6 - Sept 12 (end of day)
+# parsing the blocks between Sept 13 - Sept 19 (end of day)
 
-for i in range(4718264, 4919136):
+for i in range(4919137, 5119614):
     dys = rpc.get_block(i)['transactions']
     for tx in dys:
         for operation in tx['operations']:
@@ -44,7 +44,7 @@ authorCounts = Counter(authorlst)
 
 # indexing results for voters (name + votes given)
 
-writefileV = open('voterresults4.csv', 'w', newline='')
+writefileV = open('voterresults.csv', 'w', newline='')
 writerV = csv.writer(writefileV)
 
 for vkey, vcount in voteCounts.items():
@@ -52,7 +52,7 @@ for vkey, vcount in voteCounts.items():
 
 # indexing results for authors (name + votes received)
 
-writefileA = open('authorresults4.csv', 'w', newline='')
+writefileA = open('authorresults.csv', 'w', newline='')
 writerA = csv.writer(writefileA)
 
 for akey, acount in authorCounts.items():
